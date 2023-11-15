@@ -32,4 +32,17 @@ public class RomanNumeralsTest
         Assertions.assertEquals("Maximum number (3999) exceeded", romanNumeralsTest.getRomanNumeral(4234));
     }
 
+    @Test
+    @DisplayName("Testing the method with 0")
+    public void testingTheMethodWith0(){
+        Assertions.assertEquals("Invalid choice (number less than 1)", romanNumeralsTest.getRomanNumeral(0));
+    }
+
+    @Test
+    @DisplayName("Testing the method with -1")
+    public void testingTheMethodWithMinus1(){
+        Assertions.assertEquals("Invalid choice (number less than 1)", romanNumeralsTest.getRomanNumeral(-1));
+    }
+
+
 }

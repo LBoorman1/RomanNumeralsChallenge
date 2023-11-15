@@ -5,7 +5,7 @@ import java.util.TreeMap;
 public class RomanNumerals {
 
     /*Has the values that map to each roman numeral character, stored from largest to smallest*/
-    private TreeMap<Integer, String> valueRoman = new TreeMap<Integer, String>() {{
+    private final TreeMap<Integer, String> valueRoman = new TreeMap<Integer, String>() {{
         put(1000, "M");
         put(900, "CM");
         put(500, "D");
@@ -24,6 +24,8 @@ public class RomanNumerals {
     public String getRomanNumeral(int numberToConvert) {
         if(numberToConvert > 3999) {
             return "Maximum number (3999) exceeded";
+        } else if (numberToConvert < 1) {
+            return "Invalid choice (number less than 1)";
         }
         StringBuilder sequence = new StringBuilder();
         int remaining = numberToConvert;
