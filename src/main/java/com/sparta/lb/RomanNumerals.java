@@ -1,12 +1,11 @@
 package com.sparta.lb;
 
-import java.util.Comparator;
 import java.util.TreeMap;
 
 public class RomanNumerals {
 
     /*Has the values that map to each roman numeral character, stored from largest to smallest*/
-    private TreeMap<Integer, String> valueRoman = new TreeMap<Integer, String>(Comparator.reverseOrder()) {{
+    private TreeMap<Integer, String> valueRoman = new TreeMap<Integer, String>() {{
         put(1000, "M");
         put(900, "CM");
         put(500, "D");
@@ -29,7 +28,7 @@ public class RomanNumerals {
         StringBuilder sequence = new StringBuilder();
         int remaining = numberToConvert;
         while(remaining != 0) {
-            for(Integer value: valueRoman.keySet()) {
+            for(Integer value: valueRoman.descendingKeySet()) {
                 String roman = valueRoman.get(value);
                 if(remaining >= value) {
                     sequence.append(roman);
